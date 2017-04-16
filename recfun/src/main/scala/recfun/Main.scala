@@ -20,7 +20,18 @@ object Main {
   /**
    * Exercise 2
    */
-    def balance(chars: List[Char]): Boolean = ???
+    def balance(chars: List[Char]): Boolean = {
+      def currentBalance(i: Int, characters: List[Char]): Boolean =
+        if (characters.isEmpty) {
+          if (i == 0) true else false
+        }
+        else if (i < 0) false
+        else if (characters.head == '(') currentBalance(i + 1, characters.tail)
+        else if (characters.head == ')') currentBalance(i - 1, characters.tail)
+        else currentBalance(i, characters.tail)
+
+      currentBalance(0, chars)
+    }
   
   /**
    * Exercise 3
