@@ -15,22 +15,20 @@ object Main {
    */
     def pascal(c: Int, r: Int): Int =
       if (c == 0 || c == r) 1
-      else pascal(c-1, r-1) + pascal(c, r-1)
+      else pascal(c - 1, r - 1) + pascal(c, r - 1)
   
   /**
    * Exercise 2
    */
     def balance(chars: List[Char]): Boolean = {
-      def currentBalance(i: Int, characters: List[Char]): Boolean =
-        if (characters.isEmpty) {
-          if (i == 0) true else false
-        }
+      def hasBalance(i: Int, characters: List[Char]): Boolean =
+        if (characters.isEmpty) i == 0
         else if (i < 0) false
-        else if (characters.head == '(') currentBalance(i + 1, characters.tail)
-        else if (characters.head == ')') currentBalance(i - 1, characters.tail)
-        else currentBalance(i, characters.tail)
+        else if (characters.head == '(') hasBalance(i + 1, characters.tail)
+        else if (characters.head == ')') hasBalance(i - 1, characters.tail)
+        else hasBalance(i, characters.tail)
 
-      currentBalance(0, chars)
+      hasBalance(0, chars)
     }
   
   /**
