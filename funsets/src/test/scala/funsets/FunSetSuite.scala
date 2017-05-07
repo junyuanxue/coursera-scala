@@ -128,4 +128,13 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("filter selects elements of the set s that are accepted by the predicate p") {
+    new TestSets {
+      val unionSet = union(set1, set2)
+      val filteredSet = filter(unionSet, x => x > 1)
+      assert(contains(filteredSet, 2), "Filtered set contains 2")
+      assert(!contains(filteredSet, 1), "Filtered set does not contain 1")
+    }
+  }
+
 }
