@@ -137,4 +137,11 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("forall returns whether all bounded integers within s satisfy p") {
+    new TestSets {
+      val unionSet = union(union(set1, set2), set3)
+      assert(forall(unionSet, x => x > 0), "forall returns true for all items x > 0")
+      assert(!forall(unionSet, x => x > 1), "forall returns false for all items x > -1")
+    }
+  }
 }
