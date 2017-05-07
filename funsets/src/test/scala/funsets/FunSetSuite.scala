@@ -74,9 +74,9 @@ class FunSetSuite extends FunSuite {
    */
 
   trait TestSets {
-    val s1 = singletonSet(1)
-    val s2 = singletonSet(2)
-    val s3 = singletonSet(3)
+    val set1 = singletonSet(1)
+    val set2 = singletonSet(2)
+    val set3 = singletonSet(3)
   }
 
   /**
@@ -97,18 +97,27 @@ class FunSetSuite extends FunSuite {
        * The string argument of "assert" is a message that is printed in case
        * the test fails. This helps identifying which assertion failed.
        */
-      assert(contains(s1, 1), "Singleton")
+      assert(contains(set1, 1), "Singleton")
     }
   }
 
   test("union contains all elements of each set") {
     new TestSets {
-      val s = union(s1, s2)
-      assert(contains(s, 1), "Union 1")
-      assert(contains(s, 2), "Union 2")
-      assert(!contains(s, 3), "Union 3")
+      val set = union(set1, set2)
+      assert(contains(set, 1), "Union 1")
+      assert(contains(set, 2), "Union 2")
+      assert(!contains(set, 3), "Union 3")
     }
   }
 
+  test("intersect contains all elements of both sets") {
+    new TestSets {
+      val unionSet = union(set1, set2)
+      val set = intersect(set1, unionSet)
+      assert(contains(set, 1), "Intersect contains 1")
+      assert(contains(set, 2), "Intersect contains 2")
+      assert(!contains(set, 3), "Intersect does not contain 3")
+    }
+  }
 
 }
