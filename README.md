@@ -5,6 +5,7 @@ by Martin Odersky, École Polytechnique Fédérale de Lausanne
 Coding assignments for [Functional Programming Principles in Scala on Coursera](https://www.coursera.org/learn/progfun1).
 
 * Week 1: [Recursion](https://www.coursera.org/learn/progfun1/programming/Ey6Jf/recursion)
+* Week 2: [Functional Sets](https://www.coursera.org/learn/progfun1/programming/BVa6a/functional-sets)
 
 ## Tools :wrench:
 * Scala
