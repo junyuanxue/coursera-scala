@@ -119,4 +119,13 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("diff contains all the elements of the set s that are not in the set t") {
+    new TestSets {
+      val unionSet = union(set1, set2)
+      val diffSet = diff(unionSet, set1)
+      assert(contains(diffSet, 2), "Diff contains 2")
+      assert(!contains(diffSet, 1), "Diff does not contain 1")
+    }
+  }
+
 }
