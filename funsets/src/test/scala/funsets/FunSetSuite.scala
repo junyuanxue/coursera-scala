@@ -115,8 +115,7 @@ class FunSetSuite extends FunSuite {
       val unionSet = union(set1, set2)
       val set = intersect(set1, unionSet)
       assert(contains(set, 1), "Intersect contains 1")
-      assert(contains(set, 2), "Intersect contains 2")
-      assert(!contains(set, 3), "Intersect does not contain 3")
+      assert(!contains(set, 2), "Intersect contains 2")
     }
   }
 
