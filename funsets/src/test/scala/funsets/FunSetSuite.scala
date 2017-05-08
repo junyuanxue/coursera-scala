@@ -152,4 +152,14 @@ class FunSetSuite extends FunSuite {
       assert(!exists(unionSet, x => x > 5), "exists returns false for at least 1 element x > 5")
     }
   }
+
+  test("map transforms a set by applying a given function to every element") {
+    new TestSets {
+      val unionSet = union(set1, set2)
+      val set = map(unionSet, x => x + 3)
+      assert(contains(set, 4), "map contains 4")
+      assert(contains(set, 5), "map contains 5")
+      assert(!contains(set, 1), "map does not contain 1")
+    }
+  }
 }
