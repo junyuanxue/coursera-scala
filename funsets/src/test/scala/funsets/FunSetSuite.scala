@@ -144,4 +144,12 @@ class FunSetSuite extends FunSuite {
       assert(!forall(unionSet, x => x > 1), "forall returns false for all items x > -1")
     }
   }
+
+  test("exists returns whether at least 1 element satisfies p") {
+    new TestSets {
+      val unionSet = union(union(set1, set2), set3)
+      assert(exists(unionSet, x => x <= 1), "exists returns true for at least 1 element x <= 1")
+      assert(!exists(unionSet, x => x > 5), "exists returns false for at least 1 element x > 5")
+    }
+  }
 }
